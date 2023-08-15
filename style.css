@@ -1,0 +1,73 @@
+body {
+    max-width: 960px;
+    margin: 0;
+    padding: 0;
+    margin: 0 auto;
+    background-color: blueviolet;
+    background-clip: border-box;
+}
+
+#placar {
+    display: flex;
+    position: absolute;
+    color: black;
+    font-size: 35px;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: white;
+    left: 50%;
+    padding: 25px;
+    top: 1px;
+}
+
+#frases {
+    display: flex;
+    position: absolute;
+    color: black;
+    font-size: 45px;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: rgb(133, 190, 228);
+    left: 5%;
+    padding: 25px;
+    top: 50%;
+}
+
+#restartGame {
+    width: 10%;
+    margin: 5px 20px;
+    padding: 15px 0;
+    background: black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    transition: 1s all;
+    cursor: pointer;
+}
+
+#iniciarGame {
+    width: 10%;
+    margin: 5px 20px;
+    padding: 15px 0;
+    background: black;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    transition: 1s all;
+    cursor: pointer;
+}
+
+#restartGame:hover {
+    background: #1861a5d2;
+    transform: scale(1.2);
+}
+
+#mudaFase2 {
+    background-color: rgb(194, 132, 17);
+}
