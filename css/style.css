@@ -20,13 +20,21 @@ body {
     transform: translate(-5%, -50%);
 }
 
-.botao {
+.menuDois{
     position: relative;
     float: left;
-    clear: left;
-    width: 10%;
+    clear: left;   
+    top: 20%;
+    left: 5%;
+    transform: translate(-20%, -5%);
+}
+
+
+.botao {
+    position: relative;
     margin: 5px 60px;
     padding: 15px 0;
+    width: 30%;
     background: black;
     color: white;
     font-weight: bold;
@@ -36,11 +44,6 @@ body {
     border-color: white;
     transition: 1s all;
     cursor: pointer;
-    top: 100px;
-    left: 5%;
-    transform: translate(-100px, -5%);
-
-    
 }
 
 .botao:hover {
@@ -104,8 +107,8 @@ body {
     border-radius: 5px;
     text-align: center;
     top: 45%;
-    left: 5%;
-    transform: translate(-45%, -5%);
+    left: 6%;
+    transform: translate(-45%, -6%);
 }
 
 canvas {
