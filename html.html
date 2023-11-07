@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<input id="input" type="text" placeholder="Digite uma cor">
+<div id="elemento" class="bg-primary">Fale Conosco</div>
+<script>
+// Seleciona o input e o elemento
+var input = document.getElementById("input");
+var elemento = document.getElementById("elemento");
+
+// Adiciona um evento de input ao input
+input.addEventListener("input", function() {
+  // Pega o valor do input
+  var cor = input.value;
+  // Muda a cor do elemento usando o valor do input
+  elemento.style.color = cor;
+});
+
+</script>
+
+
+
+</html>

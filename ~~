@@ -1,5 +1,60 @@
-body {
+ function marron() {
+            if (button4.value === 'MARRON') {
+                for (var i = 0; i < rastro.length; i++) {
+                    paint.fillStyle = "brown";
+                    paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
+                }
+            } else {
+                button4.value = 'MARRON';
+
+            }
+        }
+
+        function cinza() {
+            if (button5.value === 'CINZA') {
+                for (var i = 0; i < rastro.length; i++) {
+                    paint.fillStyle = "gray";
+                    paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
+                }
+            } else {
+                button5.value = 'CINZA';
+
+            }
+        }
+
+        const buttonsPlacaCores = document.querySelector(".map");
+
+        buttonsPlacaCores.addEventListener("click", e => {
+            Array.from(buttonsPlacaCores.children).forEach(item =>
+                item.classList.remove("active")
+            );
+            if (e.target.classList.contains("azul")) {
+                for (let i = 0; i < rastro.length; i++) {
+                    paint.fillStyle = "blue";
+                    paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
+                }
+            }
+         });
+
+        function ocean() {
+            if (button6.value === 'OCEAN') {
+                for (var i = 0; i < rastro.length; i++) {
+                    paint.fillStyle = "rgba(34, 214, 227, 0.744)";
+                    paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
+                }
+            } else {
+                button6.value = 'OCEAN';
+
+            }
+        }
+        rgb(255, 72, 212)
+
+
+
+
+        body {
     width: 100%;
+    margin: 0%;
     padding: 0%;
     margin: 0% auto;
 }
@@ -25,7 +80,7 @@ body {
     float: left;
     clear: left;
     width: 10%;
-    margin: 5px 60px;
+    margin: 5px 20px;
     padding: 15px 0;
     background: black;
     color: white;
@@ -36,11 +91,9 @@ body {
     border-color: white;
     transition: 1s all;
     cursor: pointer;
-    top: 100px;
+    top: 50%;
     left: 5%;
-    transform: translate(-100px, -5%);
-
-    
+    transform: translate(-50%, -5%);
 }
 
 .botao:hover {
@@ -103,9 +156,9 @@ body {
     border: none;
     border-radius: 5px;
     text-align: center;
-    top: 45%;
+    top: 50%;
     left: 5%;
-    transform: translate(-45%, -5%);
+    transform: translate(-50%, -5%);
 }
 
 canvas {
@@ -129,7 +182,7 @@ canvas {
 
 @media screen and (max-width: auto) {
     canvas {
-        position: relative;
+        position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);

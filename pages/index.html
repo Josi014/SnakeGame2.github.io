@@ -5,22 +5,41 @@
     <title>Snack 2</title>
 
     <link rel="stylesheet" href="../style.css">
-    <script src="../scripts/primeiroTeste.js"></script>
+    <script src="../scripts/snack.js"></script>
 </head>
 
 <body>
-    <div style="max-width: 100%; margin: 100px; display: flex; align-items: center;">
+    <img class="fundo" src="../images/fundo.jpg">
+    <div class="menu">
+        <input class="botao" id="iniciarGame" type="button" value="PARTIDA" click="javascript: curtiu()" />
+        <input class="botao" id="restartGame" type="button" value="RESTART" click="javascript: seguiu()" />
+
+        <div class="placaCores">
+            <p>ESCOLHA UMA COR</p>
+            <div class="map">
+                <button id="input" class="azul"  value="AZUL" click="javascript: mudou()"></button>
+                <button id="input" class="marron"  value="MARRON" click="javascript: mudou()"></button>
+                <button id="input" class="cinza" value="CINZA" click="javascript: mudou()"></button>
+                <button id="input" class="ocean" value="OCEAN" click="javascript: mudou()"></button>
+                <button id="input" class="pink" value="PINK" click="javascript: mudou()"></button>
+                <button id="input" class="azulDois" value="AZUL" click="javascript: mudou()"></button>
+
+                <div id="corOriginal"></div>
+            </div>
+
+        </div>        
+
+    </div>
+
+    <div style="width: 100%; margin: 100px; display: flex; align-items: center;">
         <canvas id="screen" width="800" height="400"></canvas>
     </div>
 
     <div id="placar"></div>
-    <div id="frase1"></div>
-    <div id="frase2"></div>
-    <div id="frase3"></div>
-    <input id="iniciarGame" type="button" value="Partida" click="javascript: curtiu()" />
-    <input id="restartGame" type="button" value="Restart" click="javascript: seguiu()" />
-</body>
 
-</html>
+
+
+
+</body>
 
 </html>
