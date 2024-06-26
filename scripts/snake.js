@@ -175,7 +175,7 @@ window.onload = function () {
     }
 
     function novoJogo() {
-        if (button.value === 'RESTART') {
+        if (button.value === 'NOVO JOGO') {
             velX = velY = 0;
             tail = 2;
             placar = 0;
@@ -187,14 +187,14 @@ window.onload = function () {
             pontoY = 15;
             appleX = appleY = 10;
         } else {
-            button.value = 'RESTART';
+            button.value = 'NOVO JOGO';
 
         }
 
     }
 
     function comecarJogo(event) {
-        if (button2.value === 'PARTIDA') {
+        if (button2.value === 'JOGAR') {
             document.addEventListener("keydown", movimentaCobrinha);
             audio.play();
         }

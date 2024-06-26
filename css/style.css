@@ -1,7 +1,7 @@
 body {
     width: 100%;
     padding: 0%;
-    margin: 0% auto;
+    margin: 0%;
 }
 
 #placar {
@@ -22,6 +22,7 @@ body {
 
 .menuDois{
     position: relative;
+    margin-top: 15%;
     float: left;
     clear: left;   
     top: 20%;
@@ -126,9 +127,6 @@ canvas {
     margin: 0%;
 }
 
-#corOriginal {
-    background-color: white;
-}
 
 
 @media screen and (max-width: auto) {
