@@ -174,11 +174,6 @@ window.onload = function () {
         marcaPontos.innerHTML = placar;
     }
 
-    const button = document.getElementById('restartGame');
-    button.addEventListener('click', novoJogo);
-    const button2 = document.getElementById('iniciarGame');
-    button2.addEventListener('click', comecarJogo);
-
     function novoJogo() {
         if (button.value === 'RESTART') {
             velX = velY = 0;
@@ -205,6 +200,10 @@ window.onload = function () {
         }
     }
 
+    const button = document.getElementById('restartGame');
+    button.addEventListener('click', novoJogo);
+    const button2 = document.getElementById('iniciarGame');
+    button2.addEventListener('click', comecarJogo);
 
     var intervalo = 1000;
 

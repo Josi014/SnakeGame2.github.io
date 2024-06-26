@@ -121,8 +121,9 @@ canvas {
 
 .fundo {
     width: 100%;
+    height: 100%;
     position: absolute;
-    margin-top: 0%;
+    margin: 0%;
 }
 
 #corOriginal {

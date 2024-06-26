@@ -6,11 +6,12 @@
     <title>Snack 2</title>
 
     <link rel="stylesheet" href="../css/style.css">
-    <script src="../scripts/snack.js"></script>
 </head>
 
 <body>
-    <img title="imagem" class="fundo" src="../images/fundo.jpg">
+    <div class="card">
+        <img title="imagem" class="fundo" src="../images/fundo.jpg">
+    </div>
     <div class="menuDois">
         <input title="iniciar" class="botao" id="iniciarGame" type="button" value="PARTIDA" click="javascript: curtiu()" />
         <input title="restart" class="botao" id="restartGame" type="button" value="RESTART" click="javascript: seguiu()" />
@@ -25,7 +26,6 @@
             <button title="cor" id="input" class="pink" value="PINK" click="javascript: mudou()"></button>
             <button title="cor" id="input" class="azulDois" value="AZUL" click="javascript: mudou()"></button>
 
-            <div id="corOriginal"></div>
         </div>
 
     </div>
@@ -37,9 +37,11 @@
 
     <div id="placar"></div>
 
-
+    <script src="../scripts/snack.js"></script>
 
 
 </body>
+
+
 
 </html>
