@@ -45,12 +45,60 @@ window.onload = function () {
     var rastro = [];
     var tail = 2;
 
-    paint.fillStyle = "green";
-    paint.fillRect(0, 0, screen.width, screen.height);
-    paint.fillStyle = "red";
-    paint.fillRect(appleX * tq, appleY * tq, tq, tq);
-    
-    const buttonsPlacaCores = document.querySelector(".map");
+
+    function gameCobrinha() {
+        pontoX += velX;
+        pontoY += velY;
+        if (pontoX < 0) {
+            pontoX = aq - 1;
+        }
+        if (pontoX > aq - 1) {
+            pontoX = 0;
+        }
+        if (pontoY < 0) {
+            pontoY = aq - 1;
+        }
+        if (pontoY > aq - 1) {
+            pontoY = 0;
+        }
+        if (pontoX == bordaXm) {
+            novoJogo()
+            colisao.play()
+        }
+        if (pontoX === bordaXMini) {
+            novoJogo()
+            colisao.play()
+        }
+        if (pontoY === bordaYm) {
+            novoJogo()
+            colisao.play()
+        }
+        if (pontoY === bordaYMini) {
+            novoJogo()
+            colisao.play()
+        }
+
+        paint.fillStyle = "green";
+        paint.fillRect(0, 0, screen.width, screen.height);
+
+        paint.fillStyle = "red";
+        paint.fillRect(appleX * tq, appleY * tq, tq, tq);
+
+        for (var i = 0; i < rastro.length; i++) {
+            paint.fillStyle = corOriginal;
+            paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
+            pegouMaca()
+            sucoDaEvolução()
+            sucoDaMalvado()
+            if (rastro[i].x == pontoX && rastro[i].y == pontoY && tail>2) {
+                vaiPerder.play()
+                novoJogo()
+            }
+
+
+        }
+
+        const buttonsPlacaCores = document.querySelector(".map");
 
         buttonsPlacaCores.addEventListener("click", e => {
             Array.from(buttonsPlacaCores.children).forEach(item =>
@@ -96,111 +144,6 @@ window.onload = function () {
 
         });
 
-    function novoJogo() {
-        if (button.value === 'NOVO JOGO') {
-            velX = velY = 0;
-            tail = 2;
-            placar = 0;
-            x = 1;
-            y = 2;
-            j = 2;
-            z = 1;
-            pontoX = 10;
-            pontoY = 15;
-            appleX = appleY = 10;
-        } else {
-            button.value = 'NOVO JOGO';
-
-        }
-
-    }
-
-    function gameCobrinha() {
-        pontoX += velX;
-        pontoY += velY;
-        if (pontoX < 0) {
-            pontoX = aq - 1;
-        }
-        if (pontoX > aq - 1) {
-            pontoX = 0;
-        }
-        if (pontoY < 0) {
-            pontoY = aq - 1;
-        }
-        if (pontoY > aq - 1) {
-            pontoY = 0;
-        }
-        if (pontoX == bordaXm) {
-            novoJogo()
-            colisao.play()
-        }
-        if (pontoX === bordaXMini) {
-            novoJogo()
-            colisao.play()
-        }
-        if (pontoY === bordaYm) {
-            novoJogo()
-            colisao.play()
-        }
-        if (pontoY === bordaYMini) {
-            novoJogo()
-            colisao.play()
-        }
-
-        function pegouMaca() {
-            marcaPontos.innerHTML = placar;
-            audio.play()
-        }
-
-        function sucoDaEvolução() {
-            if (y % 10 == 0) {
-                paint.fillStyle = "orange";
-                paint.fillRect(appleX * tq, appleY * tq, tq, tq)
-            }
-            if (x % 10 == 0) {
-                if (appleX == pontoX && appleY == pontoY) {
-                    polisuco.play()
-                }
-                for (var i = 0; i < rastro.length; i++) {
-                    paint.fillStyle = "orange";
-                    paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
-                    if (tail > 20) {
-                        tail = 20;
-                    }
-                }
-            }
-        }
-    
-        function sucoDaMalvado() {
-            if (j % 15 == 0) {
-                paint.fillStyle = "black";
-                paint.fillRect(appleX * tq, appleY * tq, tq, tq)
-            }
-            if (z % 15 == 0) {
-                if (appleX == pontoX && appleY == pontoY) {
-                    pocaoMorte.play()
-                    vaiPerder.play()
-                }
-                for (var i = 0; i < rastro.length; i++) {
-                    paint.fillStyle = "purple";
-                    paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
-                    tail = 50;
-                }
-            }
-        }
-        for (var i = 0; i < rastro.length; i++) {
-            paint.fillStyle = corOriginal;
-            paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
-            pegouMaca()
-            sucoDaEvolução()
-            sucoDaMalvado()
-            if (rastro[i].x == pontoX && rastro[i].y == pontoY && tail>2) {
-                vaiPerder.play()
-                novoJogo()
-            }
-
-
-        }
         rastro.push({
             x: pontoX,
             y: pontoY
@@ -226,6 +169,89 @@ window.onload = function () {
 
     }
 
+
+    function pegouMaca() {
+        marcaPontos.innerHTML = placar;
+    }
+
+    function novoJogo() {
+        if (button.value === 'NOVO JOGO') {
+            velX = velY = 0;
+            tail = 2;
+            placar = 0;
+            x = 1;
+            y = 2;
+            j = 2;
+            z = 1;
+            pontoX = 10;
+            pontoY = 15;
+            appleX = appleY = 10;
+        } else {
+            button.value = 'NOVO JOGO';
+
+        }
+
+    }
+
+    function comecarJogo(event) {
+        if (button2.value === 'JOGAR') {
+            document.addEventListener("keydown", movimentaCobrinha);
+            audio.play();
+        }
+    }
+
+    const button = document.getElementById('restartGame');
+    button.addEventListener('click', novoJogo);
+    const button2 = document.getElementById('iniciarGame');
+    button2.addEventListener('click', comecarJogo);
+
+    var intervalo = 1000;
+
+    function sucoDaEvolução() {
+        if (y % 10 == 0) {
+            paint.fillStyle = "orange";
+            paint.fillRect(appleX * tq, appleY * tq, tq, tq)
+        }
+        if (x % 10 == 0) {
+            if (appleX == pontoX && appleY == pontoY) {
+                polisuco.play()
+            }
+            for (var i = 0; i < rastro.length; i++) {
+                paint.fillStyle = "orange";
+                paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
+                if (tail > 20) {
+                    tail = 20;
+                }
+            }
+        }
+    }
+
+    function sucoDaMalvado() {
+        if (j % 15 == 0) {
+            paint.fillStyle = "black";
+            paint.fillRect(appleX * tq, appleY * tq, tq, tq)
+        }
+        if (z % 15 == 0) {
+            if (appleX == pontoX && appleY == pontoY) {
+                pocaoMorte.play()
+                vaiPerder.play()
+            }
+            for (var i = 0; i < rastro.length; i++) {
+                paint.fillStyle = "purple";
+                paint.fillRect(rastro[i].x * tq, rastro[i].y * tq, tq, tq);
+                tail = 50;
+            }
+        }
+    }
+
+
+
+    var id = setInterval(intervalo);
+
+    if (x == 100 || y == 100 || j == 100 || z == 0) {
+        clearInterval(id);
+    }
+
     function movimentaCobrinha(event) {
         switch (event.keyCode) {
             case 37:
@@ -248,29 +274,9 @@ window.onload = function () {
                 break;
 
         }
+
+
     }
 
-
-    function comecarJogo(event) {
-        if (button2.value === 'JOGAR') {
-            document.addEventListener("keydown", movimentaCobrinha);
-            audio.play();
-        }
-    }
-
-    const button = document.getElementById('restartGame');
-    button.addEventListener('click', novoJogo);
-    const button2 = document.getElementById('iniciarGame');
-    button2.addEventListener('click', comecarJogo);
-
-    var intervalo = 1000;
-
-
-
-    var id = setInterval(intervalo);
-
-    if (x == 100 || y == 100 || j == 100 || z == 0) {
-        clearInterval(id);
-    }
 
 }
