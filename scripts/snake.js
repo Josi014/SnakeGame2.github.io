@@ -7,19 +7,19 @@ window.onload = function () {
     var placar = 0;
     var audio = document.createElement("AUDIO")
     document.body.appendChild(audio);
-    audio.src = '../sons/trilha.mp3'
+    audio.src = 'sons/trilha.mp3'
     var polisuco = document.createElement("AUDIO")
     document.body.appendChild(polisuco);
-    polisuco.src = '../sons/magica.mp3'
+    polisuco.src = 'sons/magica.mp3'
     var vaiPerder = document.createElement("AUDIO")
     document.body.appendChild(vaiPerder);
-    vaiPerder.src = '../sons/vaiPerder.mp3'
+    vaiPerder.src = 'sons/vaiPerder.mp3'
     var pocaoMorte = document.createElement("AUDIO")
     document.body.appendChild(pocaoMorte);
-    pocaoMorte.src = '../sons/pocaoMorte.mp3'
+    pocaoMorte.src = 'sons/pocaoMorte.mp3'
     var colisao = document.createElement("AUDIO")
     document.body.appendChild(colisao);
-    colisao.src = '../sons/colisao.mp3'
+    colisao.src = 'sons/colisao.mp3'
     var corOriginal = paint.fillStyle = "white";
 
     var x = 1;
